@@ -8,6 +8,8 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.ProgressBar;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 public class snake {
 
@@ -46,13 +48,22 @@ public class snake {
 	 */
 	protected void createContents() {
 		shell = new Shell();
+		shell.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_BACKGROUND));
 		shell.setSize(641, 528);
 		shell.setText("SWT Application");
 		
 		Canvas canvas = new Canvas(shell, SWT.NONE);
+		canvas.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		canvas.setBounds(10, 148, 605, 332);
 		
 		Button btnSu = new Button(shell, SWT.NONE);
+		btnSu.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				
+				
+			}
+		});
 		btnSu.setBounds(284, 86, 32, 25);
 		btnSu.setText("^");
 		
@@ -69,8 +80,9 @@ public class snake {
 		btnSx.setBounds(246, 117, 32, 25);
 		
 		Label lblSnake = new Label(shell, SWT.NONE);
+		lblSnake.setBackground(SWTResourceManager.getColor(SWT.COLOR_TITLE_BACKGROUND));
 		lblSnake.setFont(SWTResourceManager.getFont("Segoe UI Light", 30, SWT.BOLD));
-		lblSnake.setBounds(246, 10, 131, 54);
+		lblSnake.setBounds(246, 10, 120, 54);
 		lblSnake.setText("Snake");
 
 	}
