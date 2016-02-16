@@ -8,13 +8,20 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.ProgressBar;
+import org.eclipse.swt.events.PaintEvent;
+import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.GC;
 
 public class snake {
 
 	protected Shell shell;
-
+	GC gc;
+	int raggio=10;
+	Punto centro=new Punto(150,100);
+	Cerchio cerchio=new Cerchio(centro,raggio);
+	
 	/**
 	 * Launch the application.
 	 * @param args
@@ -43,6 +50,18 @@ public class snake {
 		}
 	}
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+public void spostaSu(int deltax, int deltay){
+		
+		centro.setX(centro.getX()+deltax);
+		
+		centro.setY(centro.getY()+deltay);
+	
+	}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	
+
 	/**
 	 * Create contents of the window.
 	 */
@@ -53,14 +72,35 @@ public class snake {
 		shell.setText("SWT Application");
 		
 		Canvas canvas = new Canvas(shell, SWT.NONE);
+		
+				canvas.addPaintListener(new PaintListener() {
+			public void paintControl(PaintEvent arg0) {
+				gc=new GC(canvas);
+				
+				gc.drawOval(centro.getX(),centro.getY(), raggio,raggio);
+				
+				gc.dispose();
+				
+				
+				
+			}
+		});
+				
 		canvas.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		canvas.setBounds(10, 148, 605, 332);
+		
+
 		
 		Button btnSu = new Button(shell, SWT.NONE);
 		btnSu.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				gc=new GC(canvas);
 				
+				cerchio.spostaSu(0,-10);
+				gc.drawOval(centro.getX(),centro.getY(), raggio,raggio);
+				
+				gc.dispose();
 				
 			}
 		});
