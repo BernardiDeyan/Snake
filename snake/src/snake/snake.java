@@ -54,19 +54,6 @@ public class snake {
 		}
 	}
 	
-/////////////FUNZIONE GENERA MELE////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	public void generaMela(){
-		
-		//int x=
-		//int y=
-		//gc.drawOval(,, raggio/2,raggio/2);
-		
-		
-		
-	
-	}
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
-
 	/**
 	 * Create contents of the window.
 	 */
@@ -89,7 +76,7 @@ public class snake {
 		
 		Canvas canvas = new Canvas(shell, SWT.NONE);
 		
-				canvas.addPaintListener(new PaintListener() {
+			canvas.addPaintListener(new PaintListener() {
 			public void paintControl(PaintEvent arg0) {
 				gc=new GC(canvas);
 				
@@ -189,12 +176,19 @@ public class snake {
 		btnStart.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				gc=new GC(canvas);
+				int mx=(int)(Math.random()*595);
+				int my=(int)(Math.random()*295);
+
+				gc.drawOval(mx,my, raggio/2,raggio/2);
 				
+				gc.dispose();
+
 				
 			}
 		});
-		btnStart.setBounds(375, 117, 75, 25);
-		btnStart.setText("Start");
+		btnStart.setBounds(375, 117, 120, 25);
+		btnStart.setText("Start (genera mela)");
 
 	}
 }
