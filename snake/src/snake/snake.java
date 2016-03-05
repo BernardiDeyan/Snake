@@ -80,6 +80,9 @@ public class snake {
 			public void paintControl(PaintEvent arg0) {
 				gc=new GC(canvas);
 				
+				gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+				gc.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+				gc.fillOval(cerchio.getX(),cerchio.getY(), raggio,raggio);
 				gc.drawOval(cerchio.getX(),cerchio.getY(), raggio,raggio);
 				
 				gc.dispose();
@@ -136,6 +139,18 @@ public class snake {
 				gc.drawOval(cerchio.getX(),cerchio.getY(), raggio,raggio);
 				
 				
+				gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				gc.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				gc.fillRectangle(cerchio.getX(),cerchio.getY()-10, 11, 11);
+				gc.fillRectangle(cerchio.getX(),cerchio.getY()-10, 11, 11);
+				
+				gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+				gc.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+				gc.fillOval(cerchio.getX(),cerchio.getY(), raggio,raggio);
+				gc.drawOval(cerchio.getX(),cerchio.getY(), raggio,raggio);
+
+				
+				
 				gc.dispose();
 			}
 		});
@@ -154,6 +169,17 @@ public class snake {
 				System.out.println(cerchio);
 				gc.drawOval(cerchio.getX(),cerchio.getY(), raggio,raggio);
 				
+				
+				gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				gc.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				gc.fillRectangle(cerchio.getX()-10,cerchio.getY(), 11, 11);
+				gc.fillRectangle(cerchio.getX()-10,cerchio.getY(), 11, 11);
+				
+				gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+				gc.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+				gc.fillOval(cerchio.getX(),cerchio.getY(), raggio,raggio);
+				gc.drawOval(cerchio.getX(),cerchio.getY(), raggio,raggio);
+				
 				gc.dispose();
 			}
 		});
@@ -169,6 +195,17 @@ public class snake {
 				System.out.println(cerchio);
 				cerchio.spostaSu(-10,0);
 				System.out.println(cerchio);
+				gc.drawOval(cerchio.getX(),cerchio.getY(), raggio,raggio);
+				
+				
+				gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				gc.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				gc.fillRectangle(cerchio.getX()+10,cerchio.getY(), 11, 11);
+				gc.fillRectangle(cerchio.getX()+10,cerchio.getY(), 11, 11);
+				
+				gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+				gc.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+				gc.fillOval(cerchio.getX(),cerchio.getY(), raggio,raggio);
 				gc.drawOval(cerchio.getX(),cerchio.getY(), raggio,raggio);
 				
 				gc.dispose();
@@ -191,6 +228,9 @@ public class snake {
 				int mx=(int)(Math.random()*595);
 				int my=(int)(Math.random()*295);
 
+				gc.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+				gc.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
+				gc.fillOval(mx,my, raggio/2,raggio/2);
 				gc.drawOval(mx,my, raggio/2,raggio/2);
 				
 				gc.dispose();
